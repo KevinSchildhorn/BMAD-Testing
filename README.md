@@ -316,3 +316,13 @@ A detailed sprint completion document has been created at docs/sprint-0-completi
 > @sm can you close out Sprint 0
 
 ![closure](/photos/Sprint0Closure.png)
+
+> @pm can you add the tickets in Sprint 1 to linear for the KevinsTestingWorkspace team, and add them to Cycle 1
+
+```
+Created the three Sprint 1 tickets in Linear for the KevinsTestingWorkspace team:
+
+Note: I don't have access to Linear's cycle management API through the available tools, so I can't assign them to Cycle 1. You can assign these issues to Cycle 1 in the Linear UI:
+```
+
+Note that Linear`s sprints are named Cycles. It seems that they're not included in the MCP
