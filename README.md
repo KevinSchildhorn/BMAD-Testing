@@ -23,6 +23,19 @@ This is a test of the [BMAD](https://github.com/bmad-code-org/BMAD-METHOD) (Busi
 | `bmad-orchestrator` | Team Coordinator | Multi-agent workflows, role switching | Complex multi-role tasks          |
 | `bmad-master`       | Universal Expert | All capabilities without switching    | Single-session comprehensive work |
 
+
+## My Method
+
+This project started from an Android Studio template for a Jetpack Compose app with Kotlin.
+From there I installed BMAD-METHOD and took this approach:
+
+1. Use the Product Manager to create a PRD for the app.
+2. Use the Architect to design the system architecture.
+3. Use the Scrum Master to create user stories.
+4. Use the Product Manager to prioritize features.
+5. Use the Product Owner to create development tickets from the user stories.
+6. Use the Developer to implement Ticket TICKET-001: Data Persistence.
+
 ## Prompts
 
 > @pm Create a PRD for an app that tracks what books you've read and how you would rate the book from 1 to 5. Also it should have the option of a reading list, which is a list of books you want to read
