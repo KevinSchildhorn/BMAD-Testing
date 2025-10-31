@@ -326,3 +326,5 @@ Note: I don't have access to Linear's cycle management API through the available
 ```
 
 Note that Linear`s sprints are named Cycles. It seems that they're not included in the MCP
+
+![Linear](/photos/LinearTicket.png)
