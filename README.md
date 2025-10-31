@@ -25,7 +25,7 @@ This is a test of the [BMAD](https://github.com/bmad-code-org/BMAD-METHOD) (Busi
 
 ## Prompts
 
-| @pm Create a PRD for an app that tracks what books you've read and how you would rate the book from 1 to 5. Also it should have the option of a reading list, which is a list of books you want to read
+> @pm Create a PRD for an app that tracks what books you've read and how you would rate the book from 1 to 5. Also it should have the option of a reading list, which is a list of books you want to read
 
 created `prd.md`
 
@@ -41,11 +41,11 @@ Basic rating (1–5 stars)
 Simple reading list (to-read books)
 ```
 
-| @architect Design the system architecture
+> @architect Design the system architecture
 
 created `architecture.md`
 
-| @sm can you create some user stories for the book tracking app
+> @sm can you create some user stories for the book tracking app
 
 ```
 Content Summary:
@@ -82,7 +82,7 @@ As a [user type]
 I want to [action]
 So that [benefit]
 ```
-| @pm can you prioritize some features
+> @pm can you prioritize some features
 
 created `feature-prioritization.md`
 
@@ -113,7 +113,7 @@ Sprint 3 (Organization): Delete, edit, update rating - 8 SP
 Sprint 4 (Enhancement): Book details, polish - 3 SP
 ```
 
-| @po can you look at the user-stories.md and create some tickets around the work
+> @po can you look at the user-stories.md and create some tickets around the work
 
 created `development-tickets.md`
 
