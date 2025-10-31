@@ -35,6 +35,14 @@ From there I installed BMAD-METHOD and took this approach:
 4. Use the Product Manager to prioritize features.
 5. Use the Product Owner to create development tickets from the user stories.
 6. Use the Developer to implement Ticket TICKET-001: Data Persistence
+7. Use the UX Expert to create UI for displaying a list of books.
+8. Use the Developer to create tests for TICKET-001.
+9. Use the QA Specialist to review the code for TICKET-001.
+10. Use the Developer to fix all major and critical issues found by QA.
+11. Use the QA Specialist to verify that the critical and major issues were fixed.
+12. Use the QA Specialist to mark those issues as resolved.
+13. Use the Scrum Master to confirm that Sprint 0 is complete.
+14. Use the Scrum Master to close out Sprint 0.
 
 ## Results
 During the development, BMAD creates documents located in [docs](/docs). This includes review tickets for each ticket.
