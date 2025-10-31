@@ -53,7 +53,8 @@ class BookRepository(private val bookDao: BookDao) {
             title = title,
             author = author,
             isRead = false,
-            rating = null
+            rating = null,
+            createdAt = System.currentTimeMillis()
         )
         return bookDao.insertBook(book)
     }
@@ -72,7 +73,8 @@ class BookRepository(private val bookDao: BookDao) {
             title = title,
             author = author,
             isRead = true,
-            rating = rating
+            rating = rating,
+            createdAt = System.currentTimeMillis()
         )
         return bookDao.insertBook(book)
     }

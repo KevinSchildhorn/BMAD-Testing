@@ -47,14 +47,14 @@ interface BookDao {
      * @param book The book to insert
      * @return The ID of the inserted book
      */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insertBook(book: Book): Long
 
     /**
      * Insert multiple books into the database.
      * @param books The books to insert
      */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insertBooks(books: List<Book>)
 
     /**

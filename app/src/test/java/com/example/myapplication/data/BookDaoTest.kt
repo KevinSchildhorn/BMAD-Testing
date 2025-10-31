@@ -43,7 +43,8 @@ class BookDaoTest {
         val book = Book(
             title = "Test Book",
             author = "Test Author",
-            isRead = false
+            isRead = false,
+            createdAt = System.currentTimeMillis()
         )
 
         // When
@@ -59,7 +60,8 @@ class BookDaoTest {
         val book = Book(
             title = "Test Book",
             author = "Test Author",
-            isRead = false
+            isRead = false,
+            createdAt = System.currentTimeMillis()
         )
         val insertedId = bookDao.insertBook(book)
 
@@ -77,8 +79,8 @@ class BookDaoTest {
     @Test
     fun getAllBooks_returnsAllBooks() = runBlocking {
         // Given
-        val book1 = Book(title = "Book 1", isRead = false)
-        val book2 = Book(title = "Book 2", isRead = true, rating = 5)
+        val book1 = Book(title = "Book 1", isRead = false, createdAt = System.currentTimeMillis())
+        val book2 = Book(title = "Book 2", isRead = true, rating = 5, createdAt = System.currentTimeMillis())
         bookDao.insertBook(book1)
         bookDao.insertBook(book2)
 
@@ -92,8 +94,8 @@ class BookDaoTest {
     @Test
     fun getReadingList_returnsOnlyUnreadBooks() = runBlocking {
         // Given
-        val readingListBook = Book(title = "To Read", isRead = false)
-        val readBook = Book(title = "Read Book", isRead = true, rating = 4)
+        val readingListBook = Book(title = "To Read", isRead = false, createdAt = System.currentTimeMillis())
+        val readBook = Book(title = "Read Book", isRead = true, rating = 4, createdAt = System.currentTimeMillis())
         bookDao.insertBook(readingListBook)
         bookDao.insertBook(readBook)
 
@@ -109,8 +111,8 @@ class BookDaoTest {
     @Test
     fun getReadBooks_returnsOnlyReadBooks() = runBlocking {
         // Given
-        val readingListBook = Book(title = "To Read", isRead = false)
-        val readBook = Book(title = "Read Book", isRead = true, rating = 4)
+        val readingListBook = Book(title = "To Read", isRead = false, createdAt = System.currentTimeMillis())
+        val readBook = Book(title = "Read Book", isRead = true, rating = 4, createdAt = System.currentTimeMillis())
         bookDao.insertBook(readingListBook)
         bookDao.insertBook(readBook)
 
@@ -127,7 +129,7 @@ class BookDaoTest {
     @Test
     fun updateBook_updatesCorrectly() = runBlocking {
         // Given
-        val book = Book(title = "Original Title", author = "Original Author", isRead = false)
+        val book = Book(title = "Original Title", author = "Original Author", isRead = false, createdAt = System.currentTimeMillis())
         val insertedId = bookDao.insertBook(book)
         val retrievedBook = bookDao.getBookById(insertedId).first()!!
 
@@ -152,7 +154,7 @@ class BookDaoTest {
     @Test
     fun deleteBook_removesBook() = runBlocking {
         // Given
-        val book = Book(title = "To Delete", isRead = false)
+        val book = Book(title = "To Delete", isRead = false, createdAt = System.currentTimeMillis())
         val insertedId = bookDao.insertBook(book)
 
         // When
@@ -167,7 +169,7 @@ class BookDaoTest {
     @Test
     fun deleteBookById_removesBook() = runBlocking {
         // Given
-        val book = Book(title = "To Delete", isRead = false)
+        val book = Book(title = "To Delete", isRead = false, createdAt = System.currentTimeMillis())
         val insertedId = bookDao.insertBook(book)
 
         // When
@@ -181,9 +183,9 @@ class BookDaoTest {
     @Test
     fun getReadingListCount_returnsCorrectCount() = runBlocking {
         // Given
-        bookDao.insertBook(Book(title = "Book 1", isRead = false))
-        bookDao.insertBook(Book(title = "Book 2", isRead = false))
-        bookDao.insertBook(Book(title = "Book 3", isRead = true, rating = 5))
+        bookDao.insertBook(Book(title = "Book 1", isRead = false, createdAt = System.currentTimeMillis()))
+        bookDao.insertBook(Book(title = "Book 2", isRead = false, createdAt = System.currentTimeMillis()))
+        bookDao.insertBook(Book(title = "Book 3", isRead = true, rating = 5, createdAt = System.currentTimeMillis()))
 
         // When
         val count = bookDao.getReadingListCount().first()
@@ -195,9 +197,9 @@ class BookDaoTest {
     @Test
     fun getReadBooksCount_returnsCorrectCount() = runBlocking {
         // Given
-        bookDao.insertBook(Book(title = "Book 1", isRead = true, rating = 4))
-        bookDao.insertBook(Book(title = "Book 2", isRead = true, rating = 5))
-        bookDao.insertBook(Book(title = "Book 3", isRead = false))
+        bookDao.insertBook(Book(title = "Book 1", isRead = true, rating = 4, createdAt = System.currentTimeMillis()))
+        bookDao.insertBook(Book(title = "Book 2", isRead = true, rating = 5, createdAt = System.currentTimeMillis()))
+        bookDao.insertBook(Book(title = "Book 3", isRead = false, createdAt = System.currentTimeMillis()))
 
         // When
         val count = bookDao.getReadBooksCount().first()
@@ -277,9 +279,9 @@ class BookDaoTest {
     fun insertBooks_bulkInsertsMultipleBooks() = runBlocking {
         // Given
         val books = listOf(
-            Book(title = "Book 1", isRead = false),
-            Book(title = "Book 2", isRead = false),
-            Book(title = "Book 3", isRead = true, rating = 5)
+            Book(title = "Book 1", isRead = false, createdAt = System.currentTimeMillis()),
+            Book(title = "Book 2", isRead = false, createdAt = System.currentTimeMillis()),
+            Book(title = "Book 3", isRead = true, rating = 5, createdAt = System.currentTimeMillis())
         )
 
         // When
@@ -297,7 +299,7 @@ class BookDaoTest {
     fun insertBook_setsCreatedAtTimestamp() = runBlocking {
         // Given
         val beforeInsert = System.currentTimeMillis()
-        val book = Book(title = "Test Book", isRead = false)
+        val book = Book(title = "Test Book", isRead = false, createdAt = System.currentTimeMillis())
 
         // When
         val insertedId = bookDao.insertBook(book)
@@ -316,7 +318,8 @@ class BookDaoTest {
         val book = Book(
             title = "Book Without Author",
             author = null,
-            isRead = false
+            isRead = false,
+            createdAt = System.currentTimeMillis()
         )
 
         // When
@@ -336,7 +339,8 @@ class BookDaoTest {
             title = "Book Without Rating",
             author = "Author",
             isRead = false,
-            rating = null
+            rating = null,
+            createdAt = System.currentTimeMillis()
         )
 
         // When
@@ -384,7 +388,7 @@ class BookDaoTest {
         assertEquals(0, initialBooks.size)
 
         // When - Insert a book
-        bookDao.insertBook(Book(title = "New Book", isRead = false))
+        bookDao.insertBook(Book(title = "New Book", isRead = false, createdAt = System.currentTimeMillis()))
         val updatedBooks = flow.first()
 
         // Then
@@ -395,7 +399,7 @@ class BookDaoTest {
     @Test
     fun getAllBooks_emitsUpdateWhenBookIsUpdated() = runBlocking {
         // Given
-        val book = Book(title = "Original Title", isRead = false)
+        val book = Book(title = "Original Title", isRead = false, createdAt = System.currentTimeMillis())
         val insertedId = bookDao.insertBook(book)
         val flow = bookDao.getAllBooks()
 
@@ -416,7 +420,7 @@ class BookDaoTest {
     @Test
     fun getAllBooks_emitsUpdateWhenBookIsDeleted() = runBlocking {
         // Given
-        val book = Book(title = "To Delete", isRead = false)
+        val book = Book(title = "To Delete", isRead = false, createdAt = System.currentTimeMillis())
         val insertedId = bookDao.insertBook(book)
         val flow = bookDao.getAllBooks()
         val initialBooks = flow.first()
@@ -443,7 +447,7 @@ class BookDaoTest {
     @Test
     fun getBookById_emitsUpdateWhenBookIsUpdated() = runBlocking {
         // Given
-        val book = Book(title = "Original", isRead = false)
+        val book = Book(title = "Original", isRead = false, createdAt = System.currentTimeMillis())
         val insertedId = bookDao.insertBook(book)
         val flow = bookDao.getBookById(insertedId)
 

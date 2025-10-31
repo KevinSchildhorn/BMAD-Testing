@@ -33,20 +33,20 @@ abstract class BookDatabase : RoomDatabase() {
         /**
          * Get the database instance.
          * Creates the database if it doesn't exist using singleton pattern.
+         * Uses double-checked locking to prevent multiple instances in multi-threaded scenarios.
          * 
          * @param context Application context
          * @return The database instance
          */
         fun getDatabase(context: Context): BookDatabase {
             return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
+                INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,
                     BookDatabase::class.java,
                     "book_database"
                 )
                     .build()
-                INSTANCE = instance
-                instance
+                    .also { INSTANCE = it }
             }
         }
     }

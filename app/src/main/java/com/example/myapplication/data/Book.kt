@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
  * @param author Author of the book (optional)
  * @param rating Rating from 1-5 stars (null if not yet rated, used for read books)
  * @param isRead Whether the book has been read (true) or is in reading list (false)
- * @param createdAt Timestamp when the book was added to the database
+ * @param createdAt Timestamp when the book was added to the database (must be set explicitly)
  */
 @Entity(tableName = "books")
 data class Book(
@@ -21,6 +21,6 @@ data class Book(
     val author: String? = null,
     val rating: Int? = null, // 1-5 stars, null for unrated books
     val isRead: Boolean = false,
-    val createdAt: Long = System.currentTimeMillis()
+    val createdAt: Long // No default - must be set explicitly at creation time
 )
 
